@@ -1,0 +1,23 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "lanework",
+      "runtimeExecutable": "bash",
+      "runtimeArgs": [
+        "scripts/dev.sh"
+      ],
+      "port": 3000,
+      "autoPort": true
+    },
+    {
+      "name": "lanework-demo",
+      "runtimeExecutable": "bash",
+      "runtimeArgs": [
+        "scripts/dev-demo.sh"
+      ],
+      "port": 3000,
+      "autoPort": true
+    }
+  ]
+}

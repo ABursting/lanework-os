@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="_ds/nocturne-e762b60e-3657-428b-a119-f5f3d4ad021a/styles.css">
+<script src="_ds/nocturne-e762b60e-3657-428b-a119-f5f3d4ad021a/_ds_bundle.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+  html, body { margin: 0; height: 100%; overflow: hidden; }
+  ::-webkit-scrollbar { width: 8px; height: 8px; }
+  ::-webkit-scrollbar-thumb { background: rgba(233,233,237,0.12); border-radius: 8px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+</style>
+</helmet>
+
+<div style="height: 100vh; display: flex; flex-direction: column; font-family: var(--font-body); color: var(--color-text); background: radial-gradient(900px 520px at 12% -14%, #262a60 0%, transparent 62%), radial-gradient(700px 420px at 92% 4%, #232532 0%, transparent 60%), var(--color-bg);">
+
+  <div style="flex: none; display: flex; align-items: center; gap: 16px; height: 54px; padding: 0 18px; background: rgba(22,24,38,0.55); backdrop-filter: blur(18px); border-bottom: 1px solid rgba(233,233,237,0.09);">
+    <div style="flex: 1; display: flex; align-items: center; gap: 9px; min-width: 0;">
+      <div style="width: 9px; height: 9px; border-radius: 2px; background: var(--color-accent); box-shadow: 0 0 12px var(--color-accent); transform: rotate(45deg);"></div>
+      <div style="font-family: var(--font-heading); font-weight: 500; font-size: 15px; letter-spacing: 0.14em;">LANEWORK</div>
+      <div style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 10px; letter-spacing: 0.1em; color: color-mix(in srgb, var(--color-text) 42%, transparent); padding-left: 4px;">v0.9 · SOLO</div>
+    </div>
+    <div style="display: flex; align-items: center; gap: 2px; padding: 3px; border-radius: 10px; background: rgba(233,233,237,0.045); border: 1px solid rgba(233,233,237,0.07);">
+      <sc-for list="{{ tabs }}" as="t" hint-placeholder-count="4">
+        <div onClick="{{ t.go }}" style="cursor: pointer; font-size: 13px; letter-spacing: 0.02em; padding: 6px 16px; border-radius: 7px; color: {{ t.color }}; background: {{ t.bg }}; box-shadow: {{ t.ring }};">{{ t.name }}</div>
+      </sc-for>
+    </div>
+    <div style="flex: 1; display: flex; justify-content: flex-end; align-items: baseline; gap: 10px; font-family: 'JetBrains Mono', ui-monospace, monospace;">
+      <div style="font-size: 13px; letter-spacing: 0.04em;">{{ clockTime }}</div>
+      <div style="font-size: 11px; color: color-mix(in srgb, var(--color-text) 45%, transparent);">{{ clockDate }}</div>
+    </div>
+  </div>
+
+  <div style="flex: 1; min-height: 0; overflow-y: auto; padding: 18px 18px 96px;">
+
+    <sc-if value="{{ isHome }}" hint-placeholder-val="{{ true }}">
+      <div style="display: grid; grid-template-columns: 316px minmax(0, 1fr); gap: 14px; align-items: start; max-width: 1560px;">
+
+        <div style="display: flex; flex-direction: column; gap: 14px;">
+
+          <div style="border-radius: 14px; padding: 15px; background: linear-gradient(168deg, rgba(66,58,106,0.55), rgba(35,37,50,0.62) 58%, rgba(22,24,38,0.55)); backdrop-filter: blur(16px); border: 1px solid rgba(233,233,237,0.1); box-shadow: 0 14px 34px rgba(0,0,0,0.42);">
+            <div style="font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-accent); margin-bottom: 10px;">Operator</div>
+            <div style="font-family: var(--font-heading); font-size: 21px; line-height: 1.15;">Nadia Okonjo-Reyes</div>
+            <div style="font-size: 12.5px; color: color-mix(in srgb, var(--color-text) 62%, transparent); margin-top: 3px;">Product Analyst track · B.S. Statistics '26</div>
+            <div style="display: flex; align-items: center; gap: 6px; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; color: color-mix(in srgb, var(--color-text) 52%, transparent); margin-top: 8px;">
+              <span>MINNEAPOLIS, MN</span><span>·</span><span>UTC−5</span>
+            </div>
+            <div style="height: 1px; margin: 13px 0; background: linear-gradient(to right, transparent, rgba(233,233,237,0.16), transparent);"></div>
+            <div style="font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: color-mix(in srgb, var(--color-text) 45%, transparent);">Focus today</div>
+            <div style="font-size: 13.5px; line-height: 1.45; margin-top: 5px;">Ship the Halcyon case-study deck before the 2pm loop confirm.</div>
+          </div>
+
+          <div style="border-radius: 14px; padding: 15px; background: linear-gradient(180deg, rgba(35,37,50,0.7), rgba(22,24,38,0.58)); backdrop-filter: blur(16px); border: 1px solid rgba(233,233,237,0.09); box-shadow: 0 12px 30px rgba(0,0,0,0.36);">
+            <div style="display: flex; align-items: flex-start; justify-content: space-between; gap: 10px;">
+              <div>
+                <div style="font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-accent);">Habit tracker</div>
+                <div style="font-size: 11px; color: color-mix(in srgb, var(--color-text) 48%, transparent); margin-top: 3px;">Daily discipline · 12-day streak</div>
+              </div>
+              <div style="text-align: right;">
+                <div style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 22px; line-height: 1; color: var(--color-accent);">{{ habitScore }}</div>
+                <div style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 10px; color: color-mix(in srgb, var(--color-text) 45%, transparent); margin-top: 3px;">{{ habitPct }}</div>
+              </div>
+            </div>
+            <div style="height: 3px; border-radius: 3px; background: rgba(233,233,237,0.09); margin: 12px 0 4px; overflow: hidden;">
+              <div style="height: 100%; border-radius: 3px; background: linear-gradient(90deg, var(--color-accent-600), var(--color-accent-400)); width: {{ habitPct }};"></div>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 1px; margin-top: 8px;">
+              <sc-for list="{{ habits }}" as="h" hint-placeholder-count="6">
+                <div onClick="{{ h.toggle }}" style="display: flex; align-items: center; gap: 9px; padding: 7px 6px; border-radius: 7px; cursor: pointer; background: {{ h.rowBg }};">
+                  <div style="flex: none; width: 15px; height: 15px; border-radius: 4px; display: grid; place-items: center; border: 1px solid {{ h.boxBorder }}; background: {{ h.boxBg }}; color: var(--color-bg); font-size: 10px; line-height: 1;">{{ h.mark }}</div>
+                  <div style="flex: 1; font-size: 13px; color: {{ h.labelColor }}; text-decoration: {{ h.strike }};">{{ h.name }}</div>
+                  <div style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 10.5px; color: color-mix(in srgb, var(--color-text) 40%, transparent);">{{ h.target }}</div>
+                </div>
+              </sc-for>
+            </div>
+          </div>
+
+          <div style="border-radius: 14px; padding: 15px; background: linear-gradient(180deg, rgba(35,37,50,0.7), rgba(22,24,38,0.58)); backdrop-filter: blur(16px); border: 1px solid rgba(233,233,237,0.09); box-shadow: 0 12px 30px rgba(0,0,0,0.36);">
+            <div style="font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-accent); margin-bottom: 12px;">Goals</div>
+            <sc-for list="{{ goalGroups }}" as="g" hint-placeholder-count="2">
+              <div style="margin-bottom: 14px;">
+                <div style="display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 7px;">
+                  <div style="font-family: var(--font-heading); font-size: 13px; letter-spacing: 0.04em;">{{ g.title }}</div>
+                  <div style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 10px; color: color-mix(in srgb, var(--color-text) 42%, transparent);">{{ g.range }}</div>
+                </div>
+                <div style="display: flex; flex-direction: column; gap: 8px;">
+                  <sc-for list="{{ g.items }}" as="it" hint-placeholder-count="3">
+                    <div>
+                      <div style="display: flex; align-items: center; gap: 7px;">
+                        <div style="flex: none; width: 5px; height: 5px; border-radius: 5px; background: {{ it.lane }};"></div>
+                        <div style="flex: 1; font-size: 12.5px; line-height: 1.35;">{{ it.label }}</div>
+                        <div style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; color: {{ it.countColor }};">{{ it.count }}</div>
+                      </div>
+                      <div style="height: 2px; border-radius: 2px; background: rgba(233,233,237,0.08); margin: 6px 0 0 12px; overflow: hidden;">
+                        <div style="height: 100%; background: {{ it.lane }}; width: {{ it.pct }};"></div>
+                      </div>
+                    </div>
+                  </sc-for>
+                </div>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 14px; min-width: 0;">
+
+          <div style="border-radius: 14px; padding: 16px 16px 8px; background: linear-gradient(180deg, rgba(35,37,50,0.72), rgba(22,24,38,0.58)); backdrop-filter: blur(16px); border: 1px solid rgba(233,233,237,0.1); box-shadow: 0 14px 34px rgba(0,0,0,0.4);">
+            <div style="display: flex; align-items: flex-end; justify-content: space-between; margin-bottom: 12px;">
+              <div>
+                <div style="font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-accent);">Priorities</div>
+                <div style="font-family: var(--font-heading); font-size: 19px; margin-top: 4px;">Today's top three</div>
+              </div>
+              <div style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 10.5px; color: color-mix(in srgb, var(--color-text) 42%, transparent);">RANKED BY LANE WEIGHT</div>
+            </div>
+            <sc-for list="{{ priorities }}" as="p" hint-placeholder-count="3">
+              <div style="display: grid; grid-template-columns: 34px minmax(0, 1fr) auto; gap: 14px; align-items: start; padding: 13px 4px; border-top: 1px solid rgba(233,233,237,0.07);">
+                <div style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 20px; line-height: 1; color: {{ p.lane }};">{{ p.rank }}</div>
+                <div style="min-width: 0;">
+                  <div style="display: flex; align-items: center; gap: 9px; flex-wrap: wrap;">
+                    <div style="font-family: var(--font-heading); font-size: 15px;">{{ p.title }}</div>
+                    <div style="font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; padding: 2px 8px; border-radius: 5px; color: {{ p.lane }}; background: {{ p.laneTint }}; border: 1px solid {{ p.laneEdge }};">{{ p.laneName }}</div>
+                  </div>
+                  <div style="font-size: 12.5px; line-height: 1.45; color: color-mix(in srgb, var(--color-text) 60%, transparent); margin-top: 4px;">{{ p.why }}</div>
+                </div>
+                <div style="text-align: right; font-family: 'JetBrains Mono', ui-monospace, monospace;">
+                  <div style="font-size: 12px;">{{ p.due }}</div>
+                  <div style="font-size: 10px; color: {{ p.dueColor }}; margin-top: 3px;">{{ p.dueNote }}</div>
+                </div>
+              </div>
+            </sc-for>
+          </div>
+
+          <div style="border-radius: 14px; padding: 16px; background: linear-gradient(180deg, rgba(35,37,50,0.7), rgba(22,24,38,0.58)); backdrop-filter: blur(16px); border: 1px solid rgba(233,233,237,0.09); box-shadow: 0 12px 30px rgba(0,0,0,0.36);">
+            <div style="display: flex; align-items: flex-end; justify-content: space-between; margin-bottom: 14px;">
+              <div>
+                <div style="font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-accent);">Calendar</div>
+                <div style="font-family: var(--font-heading); font-size: 19px; margin-top: 4px;">Week of Aug 24 — Aug 30</div>
+              </div>
+              <div style="display: flex; gap: 14px; font-size: 10.5px; color: color-mix(in srgb, var(--color-text) 50%, transparent);">
+                <sc-for list="{{ eventLegend }}" as="l" hint-placeholder-count="4">
+                  <div style="display: flex; align-items: center; gap: 5px;">
+                    <span style="width: 7px; height: 7px; border-radius: 2px; background: {{ l.color }};"></span>{{ l.name }}
+                  </div>
+                </sc-for>
+              </div>
+            </div>
+            <div style="display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 8px;">
+              <sc-for list="{{ week }}" as="d" hint-placeholder-count="7">
+                <div style="min-height: 168px; border-radius: 10px; padding: 9px 8px; background: {{ d.bg }}; border: 1px solid {{ d.edge }};">
+                  <div style="display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 9px;">
+                    <div style="font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: color-mix(in srgb, var(--color-text) 48%, transparent);">{{ d.dow }}</div>
+                    <div style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 13px; color: {{ d.numColor }};">{{ d.num }}</div>
+                  </div>
+                  <div style="display: flex; flex-direction: column; gap: 5px;">
+                    <sc-for list="{{ d.events }}" as="e" hint-placeholder-count="2">
+                      <div style="border-radius: 6px; padding: 5px 6px; background: {{ e.tint }}; border-left: 2px solid {{ e.color }};">
+                        <div style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 9.5px; color: {{ e.color }};">{{ e.time }}</div>
+                        <div style="font-size: 11px; line-height: 1.3; margin-top: 2px;">{{ e.label }}</div>
+                      </div>
+                    </sc-for>
+                  </div>
+                </div>
+              </sc-for>
+            </div>
+          </div>
+        </div>
+      </div>
+    </sc-if>
+
+    <sc-if value="{{ isCRM }}" hint-placeholder-val="{{ false }}">
+      <div style="max-width: 1800px;">
+        <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 14px;">
+          <div style="display: flex; gap: 2px; padding: 3px; border-radius: 9px; background: rgba(233,233,237,0.045); border: 1px solid rgba(233,233,237,0.07);">
+            <sc-for list="{{ crmTabs }}" as="c" hint-placeholder-count="4">
+              <div onClick="{{ c.go }}" style="cursor: pointer; font-size: 12.5px; padding: 6px 15px; border-radius: 6px; color: {{ c.color }}; background: {{ c.bg }};">{{ c.name }}</div>
+            </sc-for>
+          </div>
+          <div style="flex: 1;"></div>
+          <div style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 10.5px; color: color-mix(in srgb, var(--color-text) 42%, transparent);">21 ACTIVE RECORDS · SYNCED 4M AGO</div>
+        </div>
+
+        <sc-if value="{{ isApps }}" hint-placeholder-val="{{ true }}">
+          <div>
+            <div style="display: flex; gap: 8px; margin-bottom: 14px; flex-wrap: wrap;">
+              <sc-for list="{{ stageSummary }}" as="s" hint-placeholder-count="6">
+                <div style="flex: 1; min-width: 118px; border-radius: 10px; padding: 10px 12px; background: rgba(35,37,50,0.6); backdrop-filter: blur(12px); border: 1px solid rgba(233,233,237,0.08); border-top: 2px solid {{ s.color }};">
+                  <div style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 20px; line-height: 1;">{{ s.count }}</div>
+                  <div style="font-size: 10.5px; letter-spacing: 0.06em; text-transform: uppercase; color: color-mix(in srgb, var(--color-text) 52%, transparent); margin-top: 5px;">{{ s.name }}</div>
+                </div>
+              </sc-for>
+              <div style="flex: 1; min-width: 176px; border-radius: 10px; padding: 10px 12px; background: linear-gradient(150deg, rgba(66,58,106,0.6), rgba(35,37,50,0.55)); border: 1px solid rgba(145,132,217,0.3);">
+                <div style="display: flex; align-items: baseline; gap: 7px;">
+                  <div style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 20px; line-height: 1; color: var(--color-accent);">62%</div>
+                  <div style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; color: color-mix(in srgb, var(--color-text) 48%, transparent);">13/21</div>
+                </div>
+                <div style="font-size: 10.5px; letter-spacing: 0.06em; text-transform: uppercase; color: color-mix(in srgb, var(--color-text) 62%, transparent); margin-top: 5px;">Resume pass rate</div>
+              </div>
+            </div>
+
+            <div style="display: grid; grid-template-columns: repeat(6, minmax(224px, 1fr)); gap: 10px; overflow-x: auto; padding-bottom: 6px;">
+              <sc-for list="{{ board }}" as="col" hint-placeholder-count="6">
+                <div style="border-radius: 12px; padding: 10px; background: rgba(22,24,38,0.42); border: 1px solid rgba(233,233,237,0.06); min-height: 380px;">
+                  <div style="display: flex; align-items: center; gap: 7px; padding: 2px 4px 11px;">
+                    <span style="width: 7px; height: 7px; border-radius: 2px; background: {{ col.color }}; box-shadow: 0 0 8px {{ col.color }};"></span>
+                    <div style="flex: 1; font-size: 11px; letter-spacing: 0.09em; text-transform: uppercase; color: color-mix(in srgb, var(--color-text) 72%, transparent);">{{ col.name }}</div>
+                    <div style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; color: color-mix(in srgb, var(--color-text) 45%, transparent);">{{ col.count }}</div>
+                  </div>
+                  <div style="display: flex; flex-direction: column; gap: 8px;">
+                    <sc-for list="{{ col.cards }}" as="a" hint-placeholder-count="3">
+                      <div style="border-radius: 10px; padding: 10px 11px; background: linear-gradient(180deg, rgba(35,37,50,0.82), rgba(28,30,42,0.72)); backdrop-filter: blur(10px); border: 1px solid rgba(233,233,237,0.09); border-left: 2px solid {{ a.rail }}; box-shadow: 0 6px 16px rgba(0,0,0,0.3);">
+                        <div style="display: flex; align-items: flex-start; gap: 8px;">
+                          <div style="flex: 1; font-family: var(--font-heading); font-size: 13.5px; line-height: 1.25;">{{ a.company }}</div>
+                          <div style="flex: none; width: 15px; height: 15px; border-radius: 8px; display: grid; place-items: center; font-size: 9px; color: {{ a.passColor }}; background: {{ a.passBg }}; border: 1px solid {{ a.passEdge }};">{{ a.passMark }}</div>
+                        </div>
+                        <div style="font-size: 11.5px; color: color-mix(in srgb, var(--color-text) 58%, transparent); margin-top: 3px;">{{ a.role }}</div>
+                        <div style="display: flex; align-items: center; gap: 7px; margin-top: 9px;">
+                          <div style="font-size: 9.5px; letter-spacing: 0.08em; text-transform: uppercase; padding: 2px 7px; border-radius: 4px; color: {{ a.lane }}; background: {{ a.laneTint }};">{{ a.laneName }}</div>
+                          <div style="flex: 1;"></div>
+                          <div style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 10px; color: {{ a.staleColor }};">{{ a.touched }}</div>
+                        </div>
+                      </div>
+                    </sc-for>
+                  </div>
+                </div>
+              </sc-for>
+            </div>
+          </div>
+        </sc-if>
+
+        <sc-if value="{{ isCompanies }}" hint-placeholder-val="{{ false }}">
+          <div style="border-radius: 12px; overflow: hidden; background: rgba(35,37,50,0.6); backdrop-filter: blur(14px); border: 1px solid rgba(233,233,237,0.09);">
+            <div style="display: flex; align-items: center; gap: 8px; padding: 12px 14px; border-bottom: 1px solid rgba(233,233,237,0.08);">
+              <input class="input" placeholder="Filter companies…" style="max-width: 260px;">
+              <sc-for list="{{ laneFilters }}" as="f" hint-placeholder-count="4">
+                <div style="font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; padding: 5px 11px; border-radius: 6px; cursor: pointer; color: {{ f.color }}; border: 1px solid {{ f.edge }}; background: {{ f.bg }};">{{ f.name }}</div>
+              </sc-for>
+            </div>
+            <div style="display: grid; grid-template-columns: minmax(0, 2fr) 118px minmax(0, 1.6fr) 90px 96px; gap: 12px; padding: 9px 16px; font-size: 10px; letter-spacing: 0.09em; text-transform: uppercase; color: color-mix(in srgb, var(--color-text) 45%, transparent);">
+              <div>Company</div><div>Lane</div><div>Open roles</div><div>Contacts</div><div>Last touch</div>
+            </div>
+            <sc-for list="{{ companies }}" as="c" hint-placeholder-count="8">
+              <div style="display: grid; grid-template-columns: minmax(0, 2fr) 118px minmax(0, 1.6fr) 90px 96px; gap: 12px; align-items: center; padding: 11px 16px; border-top: 1px solid rgba(233,233,237,0.055);">
+                <div style="display: flex; align-items: center; gap: 9px; min-width: 0;">
+                  <span style="width: 3px; height: 22px; border-radius: 2px; background: {{ c.lane }};"></span>
+                  <div>
+                    <div style="font-family: var(--font-heading); font-size: 14px;">{{ c.name }}</div>
+                    <div style="font-size: 11px; color: color-mix(in srgb, var(--color-text) 45%, transparent);">{{ c.sector }}</div>
+                  </div>
+                </div>
+                <div style="font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; padding: 2px 8px; border-radius: 5px; justify-self: start; color: {{ c.lane }}; background: {{ c.laneTint }};">{{ c.laneName }}</div>
+                <div style="font-size: 12.5px; color: color-mix(in srgb, var(--color-text) 72%, transparent);">{{ c.roles }}</div>
+                <div style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 12px;">{{ c.contacts }}</div>
+                <div style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11.5px; color: {{ c.touchColor }};">{{ c.touch }}</div>
+              </div>
+            </sc-for>
+          </div>
+        </sc-if>
+
+        <sc-if value="{{ isContacts }}" hint-placeholder-val="{{ false }}">
+          <div style="border-radius: 12px; overflow: hidden; background: rgba(35,37,50,0.6); backdrop-filter: blur(14px); border: 1px solid rgba(233,233,237,0.09);">
+            <div style="display: flex; align-items: center; gap: 8px; padding: 12px 14px; border-bottom: 1px solid rgba(233,233,237,0.08);">
+              <input class="input" placeholder="Filter contacts…" style="max-width: 260px;">
+              <sc-for list="{{ contactFilters }}" as="f" hint-placeholder-count="4">
+                <div style="font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; padding: 5px 11px; border-radius: 6px; cursor: pointer; color: {{ f.color }}; border: 1px solid {{ f.edge }}; background: {{ f.bg }};">{{ f.name }}</div>
+              </sc-for>
+            </div>
+            <div style="display: grid; grid-template-columns: minmax(0, 1.6fr) minmax(0, 1.8fr) 118px 128px 96px; gap: 12px; padding: 9px 16px; font-size: 10px; letter-spacing: 0.09em; text-transform: uppercase; color: color-mix(in srgb, var(--color-text) 45%, transparent);">
+              <div>Name</div><div>Role · company</div><div>Lane</div><div>Relationship</div><div>Last touch</div>
+            </div>
+            <sc-for list="{{ contacts }}" as="p" hint-placeholder-count="8">
+              <div style="display: grid; grid-template-columns: minmax(0, 1.6fr) minmax(0, 1.8fr) 118px 128px 96px; gap: 12px; align-items: center; padding: 11px 16px; border-top: 1px solid rgba(233,233,237,0.055);">
+                <div style="display: flex; align-items: center; gap: 9px; min-width: 0;">
+                  <div style="flex: none; width: 26px; height: 26px; border-radius: 8px; display: grid; place-items: center; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 10px; color: {{ p.lane }}; background: {{ p.laneTint }};">{{ p.initials }}</div>
+                  <div style="font-family: var(--font-heading); font-size: 14px;">{{ p.name }}</div>
+                </div>
+                <div style="font-size: 12.5px; color: color-mix(in srgb, var(--color-text) 72%, transparent);">{{ p.role }}</div>
+                <div style="font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; padding: 2px 8px; border-radius: 5px; justify-self: start; color: {{ p.lane }}; background: {{ p.laneTint }};">{{ p.laneName }}</div>
+                <div style="font-size: 12px; color: color-mix(in srgb, var(--color-text) 60%, transparent);">{{ p.rel }}</div>
+                <div style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11.5px; color: {{ p.touchColor }};">{{ p.touch }}</div>
+              </div>
+            </sc-for>
+          </div>
+        </sc-if>
+
+        <sc-if value="{{ isCompress }}" hint-placeholder-val="{{ false }}">
+          <div style="display: flex; flex-direction: column; gap: 14px; max-width: 1100px;">
+            <sc-for list="{{ compress }}" as="grp" hint-placeholder-count="2">
+              <div style="border-radius: 12px; padding: 15px; background: linear-gradient(180deg, rgba(35,37,50,0.68), rgba(22,24,38,0.56)); backdrop-filter: blur(14px); border: 1px solid rgba(233,233,237,0.09);">
+                <div style="display: flex; align-items: baseline; gap: 10px; margin-bottom: 12px;">
+                  <div style="font-family: var(--font-heading); font-size: 17px;">{{ grp.title }}</div>
+                  <div style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; color: color-mix(in srgb, var(--color-text) 45%, transparent);">{{ grp.meta }}</div>
+                </div>
+                <div style="display: flex; flex-direction: column; gap: 8px;">
+                  <sc-for list="{{ grp.rows }}" as="r" hint-placeholder-count="3">
+                    <div style="display: flex; align-items: center; gap: 14px; padding: 11px 12px; border-radius: 10px; background: rgba(233,233,237,0.035); border: 1px solid rgba(233,233,237,0.06);">
+                      <span style="flex: none; width: 3px; height: 26px; border-radius: 2px; background: {{ r.lane }};"></span>
+                      <div style="flex: 1; min-width: 0;">
+                        <div style="font-family: var(--font-heading); font-size: 14px;">{{ r.title }}</div>
+                        <div style="font-size: 12px; color: color-mix(in srgb, var(--color-text) 55%, transparent); margin-top: 2px;">{{ r.note }}</div>
+                      </div>
+                      <div style="flex: none; text-align: right; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; color: #c98d8d;">{{ r.quiet }}</div>
+                      <div style="flex: none; display: flex; gap: 7px;">
+                        <button class="btn btn-secondary" style="font-size: 12px;">{{ r.actionB }}</button>
+                        <button class="btn btn-primary" style="font-size: 12px;">{{ r.actionA }}</button>
+                      </div>
+                    </div>
+                  </sc-for>
+                </div>
+              </div>
+            </sc-for>
+          </div>
+        </sc-if>
+      </div>
+    </sc-if>
+
+    <sc-if value="{{ isBrain }}" hint-placeholder-val="{{ false }}">
+      <div style="max-width: 1320px; margin: 0 auto;">
+        <div style="display: flex; align-items: center; gap: 11px; padding: 12px 16px; border-radius: 12px; background: linear-gradient(180deg, rgba(35,37,50,0.75), rgba(22,24,38,0.6)); backdrop-filter: blur(16px); border: 1px solid rgba(145,132,217,0.26); box-shadow: 0 12px 34px rgba(0,0,0,0.4);">
+          <span style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 13px; color: var(--color-accent);">⌕</span>
+          <input class="input" placeholder="search your recruiting history…" style="border: 0; background: transparent; font-size: 16px; min-height: 30px; padding: 0;" value="{{ brainQuery }}" onChange="{{ setBrainQuery }}">
+          <div style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 10.5px; color: color-mix(in srgb, var(--color-text) 40%, transparent);">{{ brainCount }} MATCHES · 412 ENTRIES INDEXED</div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: minmax(0, 1fr) 420px; gap: 14px; margin-top: 14px; align-items: start;">
+          <div style="display: flex; flex-direction: column; gap: 7px;">
+            <sc-for list="{{ brainResults }}" as="b" hint-placeholder-count="6">
+              <div onClick="{{ b.open }}" style="display: grid; grid-template-columns: 88px minmax(0, 1fr); gap: 14px; padding: 12px 14px; border-radius: 10px; cursor: pointer; background: {{ b.bg }}; border: 1px solid {{ b.edge }};">
+                <div>
+                  <div style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11.5px;">{{ b.date }}</div>
+                  <div style="font-size: 9.5px; letter-spacing: 0.08em; text-transform: uppercase; color: {{ b.kindColor }}; margin-top: 4px;">{{ b.kind }}</div>
+                </div>
+                <div style="min-width: 0;">
+                  <div style="display: flex; align-items: center; gap: 8px;">
+                    <div style="font-family: var(--font-heading); font-size: 14px;">{{ b.title }}</div>
+                    <div style="font-size: 9.5px; letter-spacing: 0.08em; text-transform: uppercase; padding: 2px 7px; border-radius: 4px; color: {{ b.lane }}; background: {{ b.laneTint }};">{{ b.laneName }}</div>
+                  </div>
+                  <div style="font-size: 12.5px; line-height: 1.45; color: color-mix(in srgb, var(--color-text) 58%, transparent); margin-top: 4px;">{{ b.snippet }}</div>
+                </div>
+              </div>
+            </sc-for>
+          </div>
+
+          <div style="border-radius: 12px; padding: 16px; background: linear-gradient(180deg, rgba(35,37,50,0.72), rgba(22,24,38,0.58)); backdrop-filter: blur(16px); border: 1px solid rgba(233,233,237,0.1); box-shadow: 0 12px 30px rgba(0,0,0,0.38); position: sticky; top: 0;">
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <div style="font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-accent);">Full context</div>
+              <div style="flex: 1;"></div>
+              <div style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 10.5px; color: color-mix(in srgb, var(--color-text) 42%, transparent);">{{ detail.date }}</div>
+            </div>
+            <div style="font-family: var(--font-heading); font-size: 18px; margin-top: 10px; line-height: 1.2;">{{ detail.title }}</div>
+            <div style="display: flex; align-items: center; gap: 7px; margin-top: 8px;">
+              <div style="font-size: 9.5px; letter-spacing: 0.08em; text-transform: uppercase; padding: 2px 8px; border-radius: 5px; color: {{ detail.lane }}; background: {{ detail.laneTint }};">{{ detail.laneName }}</div>
+              <div style="font-size: 9.5px; letter-spacing: 0.08em; text-transform: uppercase; padding: 2px 8px; border-radius: 5px; color: color-mix(in srgb, var(--color-text) 62%, transparent); background: rgba(233,233,237,0.07);">{{ detail.kind }}</div>
+            </div>
+            <div style="height: 1px; margin: 14px 0; background: linear-gradient(to right, transparent, rgba(233,233,237,0.16), transparent);"></div>
+            <div style="font-size: 13.5px; line-height: 1.6; color: color-mix(in srgb, var(--color-text) 84%, transparent); white-space: pre-line;">{{ detail.body }}</div>
+            <div style="margin-top: 16px; display: flex; flex-direction: column; gap: 7px;">
+              <sc-for list="{{ detail.links }}" as="l" hint-placeholder-count="3">
+                <div style="display: flex; align-items: center; gap: 9px; font-size: 12px; padding: 8px 10px; border-radius: 8px; background: rgba(233,233,237,0.04);">
+                  <span style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 10px; color: var(--color-accent);">{{ l.tag }}</span>
+                  <span style="color: color-mix(in srgb, var(--color-text) 72%, transparent);">{{ l.label }}</span>
+                </div>
+              </sc-for>
+            </div>
+          </div>
+        </div>
+      </div>
+    </sc-if>
+
+    <sc-if value="{{ isReview }}" hint-placeholder-val="{{ false }}">
+      <div style="max-width: 880px; margin: 0 auto;">
+        <div style="display: flex; align-items: flex-end; justify-content: space-between; gap: 16px; padding-bottom: 14px; border-bottom: 1px solid rgba(233,233,237,0.1);">
+          <div>
+            <div style="font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-accent);">Weekly review</div>
+            <div style="font-family: var(--font-heading); font-size: 30px; margin-top: 6px; line-height: 1.1;">Aug 24 — Aug 30, 2026</div>
+            <div style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; color: color-mix(in srgb, var(--color-text) 45%, transparent); margin-top: 7px;">WEEK 35 · DRAFT · AUTOSAVED 11:02</div>
+          </div>
+          <button class="btn btn-primary" style="font-size: 13px; padding: 9px 18px;">Seal Week</button>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 12px; margin-top: 16px;">
+          <sc-for list="{{ reviewSections }}" as="s" hint-placeholder-count="5">
+            <div style="border-radius: 12px; padding: 14px 15px; background: linear-gradient(180deg, rgba(35,37,50,0.62), rgba(22,24,38,0.5)); backdrop-filter: blur(14px); border: 1px solid rgba(233,233,237,0.085);">
+              <div style="display: flex; align-items: baseline; gap: 10px; margin-bottom: 9px;">
+                <div style="font-family: var(--font-heading); font-size: 15px;">{{ s.title }}</div>
+                <div style="flex: 1;"></div>
+                <div style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 10px; color: color-mix(in srgb, var(--color-text) 38%, transparent);">{{ s.hint }}</div>
+              </div>
+              <textarea class="input" style="min-height: 96px; line-height: 1.6; font-size: 13.5px; background: rgba(22,24,38,0.45); border-color: rgba(233,233,237,0.09);" defaultValue="{{ s.text }}"></textarea>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+    </sc-if>
+  </div>
+
+  <div style="position: fixed; left: 50%; bottom: 20px; transform: translateX(-50%); width: min(760px, calc(100vw - 48px)); z-index: 40;">
+    <div style="display: flex; align-items: center; gap: 10px; padding: 9px 10px 9px 14px; border-radius: 14px; background: rgba(28,30,44,0.78); backdrop-filter: blur(22px); border: 1px solid rgba(145,132,217,0.28); box-shadow: 0 18px 46px rgba(0,0,0,0.6), inset 0 1px 0 rgba(233,233,237,0.06);">
+      <span style="width: 7px; height: 7px; border-radius: 4px; background: var(--color-accent); box-shadow: 0 0 10px var(--color-accent);"></span>
+      <input class="input" placeholder="Capture anything — a note, a status change, a screenshot…" style="border: 0; background: transparent; min-height: 26px; padding: 0; font-size: 14px;">
+      <div style="display: flex; align-items: center; gap: 6px;">
+        <div style="width: 30px; height: 30px; border-radius: 8px; display: grid; place-items: center; cursor: pointer; border: 1px solid rgba(233,233,237,0.12); font-size: 13px; color: color-mix(in srgb, var(--color-text) 70%, transparent);">🖼</div>
+        <button class="btn btn-primary" style="font-size: 12.5px;">Capture</button>
+      </div>
+    </div>
+    <div style="display: flex; justify-content: center; gap: 14px; margin-top: 8px; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 9.5px; color: color-mix(in srgb, var(--color-text) 32%, transparent);">
+      <span>⌘K CAPTURE</span><span>⌘⇧V PASTE SCREENSHOT</span><span>ROUTES TO BRAIN</span>
+    </div>
+  </div>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;laneAccentPrimary&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#968ae0&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;options&quot;:[&quot;#968ae0&quot;,&quot;#8aa4e0&quot;,&quot;#a98ae0&quot;,&quot;#7f8ce6&quot;],&quot;section&quot;:&quot;Lanes&quot;},&quot;showLaneRail&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Lanes&quot;},&quot;startTab&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;default&quot;:&quot;Home&quot;,&quot;options&quot;:[&quot;Home&quot;,&quot;CRM&quot;,&quot;Brain&quot;,&quot;Review&quot;],&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Behavior&quot;}}">
+const LANE = {
+  Primary: { c: '#968ae0', tint: 'rgba(150,138,224,0.16)', edge: 'rgba(150,138,224,0.4)' },
+  Secondary: { c: '#6fb3a8', tint: 'rgba(111,179,168,0.15)', edge: 'rgba(111,179,168,0.38)' },
+  Peripheral: { c: '#c9a06a', tint: 'rgba(201,160,106,0.14)', edge: 'rgba(201,160,106,0.36)' }
+};
+const MUT = 'color-mix(in srgb, var(--color-text) 55%, transparent)';
+const EV = {
+  Interview: '#968ae0', Info: '#6fb3a8', Deadline: '#c98d8d', Network: '#c9a06a'
+};
+
+const HABITS = [
+  ['Handshake applications', '3/day', true],
+  ['Newsletter read', '1', true],
+  ['Networking outreach', '2/day', true],
+  ['Resume tailoring block', '30m', false],
+  ['Interview drill', '20m', true],
+  ['Log the day in Brain', '—', false]
+];
+
+const BRAIN = [
+  { date: '2026-08-26', kind: 'Status', lane: 'Primary', title: 'Halcyon Systems moved to Interviewing',
+    snippet: 'Recruiter Dara Vance confirmed a 3-round loop; case study due before the panel.',
+    body: 'Dara Vance emailed at 9:14 to confirm the loop: 30m recruiter screen (done), 60m analytics case, 45m hiring-manager panel.\n\nCase prompt: retention cohort read on a subscription product. She flagged that the panel cares more about how I frame the question than the SQL.\n\nOpen: send the case-study deck by Thu, ask about the team\u2019s tooling (dbt? Looker?).',
+    links: [{ tag: 'APP', label: 'Halcyon Systems — Associate PM' }, { tag: 'PERSON', label: 'Dara Vance · Recruiting Lead' }, { tag: 'EVENT', label: 'Analytics case — Aug 27, 2:00pm' }] },
+  { date: '2026-08-25', kind: 'Note', lane: 'Secondary', title: 'Coffee chat — Marrow & Finch',
+    snippet: 'Priya said the strategy team hires in two waves; second wave posts mid-September.',
+    body: 'Priya Raman (Sr. Associate, 2 yrs in) — 25 minutes.\n\nTwo hiring waves: August for the New York pod, mid-September for the distributed pod. She suggested applying to the September posting rather than forcing the August one.\n\nShe offered to flag my name to the staffing lead if I send a one-paragraph blurb.',
+    links: [{ tag: 'PERSON', label: 'Priya Raman · Sr. Associate' }, { tag: 'TODO', label: 'Send blurb by Aug 28' }] },
+  { date: '2026-08-24', kind: 'Status', lane: 'Primary', title: 'Auric Motion — resume passed screen',
+    snippet: 'ATS confirmation plus a personal note from the sourcer; timeline is two weeks out.',
+    body: 'Automated pass at 7:02, then a note from sourcer Bo Ellison: growth analyst reqs open through mid-September, screens start the week of Sept 7.\n\nHe asked for a portfolio link. Sent the dashboard write-up.',
+    links: [{ tag: 'APP', label: 'Auric Motion — Growth Analyst' }, { tag: 'PERSON', label: 'Bo Ellison · Sourcer' }] },
+  { date: '2026-08-22', kind: 'Update', lane: 'Peripheral', title: 'Copperline Media went quiet',
+    snippet: 'Twelve days since the application; no recruiter attached to the req on LinkedIn.',
+    body: 'No movement since Aug 10. The req is still live but nobody is listed as the recruiter, which usually means it is being backfilled internally.\n\nDecision: hold two more weeks, then kill. This is a peripheral-lane role; not worth a follow-up sequence.',
+    links: [{ tag: 'APP', label: 'Copperline Media — Brand Strategist' }] },
+  { date: '2026-08-21', kind: 'Note', lane: 'Primary', title: 'Lumen Freight — round 2 debrief',
+    snippet: 'Ops analyst panel went long; they pushed on forecasting assumptions.',
+    body: 'Two interviewers, 55 minutes. Strong on the SQL walkthrough, shaky when asked how I would validate a demand forecast I did not build.\n\nWhat to fix: have a crisp three-step answer for validating someone else\u2019s model.\n\nThey said final decision by Sept 2.',
+    links: [{ tag: 'APP', label: 'Lumen Freight — Ops Analyst' }, { tag: 'TODO', label: 'Drill forecast-validation answer' }] },
+  { date: '2026-08-19', kind: 'Update', lane: 'Secondary', title: 'Fernwood Data extended an offer',
+    snippet: 'Data Analyst I, base plus signing; response window closes Sept 4.',
+    body: 'Verbal Tuesday, written Wednesday. Base is at the low end of the range I researched; signing bonus is above.\n\nUsing it as a floor and a clock: it gives the Primary lane about ten working days to produce a competing offer.',
+    links: [{ tag: 'APP', label: 'Fernwood Data — Data Analyst I' }, { tag: 'EVENT', label: 'Offer expires Sept 4' }] }
+];
+
+class Component extends DCLogic {
+  state = {
+    tab: this.props.startTab || 'Home',
+    crmTab: 'Applications',
+    habits: HABITS.map(h => ({ name: h[0], target: h[1], done: h[2] })),
+    query: '',
+    openIdx: 0
+  };
+
+  lane(name, extra) {
+    const l = this.lanes()[name];
+    return Object.assign({ lane: l.c, laneTint: l.tint, laneEdge: l.edge, laneName: name }, extra || {});
+  }
+
+  lanes() {
+    const p = this.props.laneAccentPrimary;
+    if (!p) return LANE;
+    return Object.assign({}, LANE, { Primary: { c: p, tint: 'color-mix(in srgb, ' + p + ' 16%, transparent)', edge: 'color-mix(in srgb, ' + p + ' 42%, transparent)' } });
+  }
+
+  renderVals() {
+    const st = this.state;
+    const LANES = this.lanes();
+    const rail = this.props.showLaneRail === false ? 'transparent' : null;
+    const mkTabs = (names, cur, key) => names.map(n => ({
+      name: n,
+      go: () => this.setState({ [key]: n }),
+      color: n === cur ? 'var(--color-accent)' : 'color-mix(in srgb, var(--color-text) 66%, transparent)',
+      bg: n === cur ? 'rgba(150,138,224,0.13)' : 'transparent',
+      ring: n === cur ? 'inset 0 0 0 1px rgba(150,138,224,0.42)' : 'none'
+    }));
+
+    const habits = st.habits.map((h, i) => ({
+      name: h.name, target: h.target,
+      mark: h.done ? '✓' : '',
+      boxBorder: h.done ? 'var(--color-accent)' : 'rgba(233,233,237,0.2)',
+      boxBg: h.done ? 'var(--color-accent)' : 'transparent',
+      rowBg: h.done ? 'rgba(150,138,224,0.06)' : 'transparent',
+      labelColor: h.done ? MUT : 'var(--color-text)',
+      strike: h.done ? 'line-through' : 'none',
+      toggle: () => this.setState(s => ({
+        habits: s.habits.map((x, j) => j === i ? Object.assign({}, x, { done: !x.done }) : x)
+      }))
+    }));
+    const done = st.habits.filter(h => h.done).length;
+
+    const goal = (label, laneName, cur, max) => ({
+      label, lane: LANES[laneName].c, count: cur + '/' + max,
+      pct: Math.round(cur / max * 100) + '%',
+      countColor: cur >= max ? LANES[laneName].c : 'color-mix(in srgb, var(--color-text) 60%, transparent)'
+    });
+
+    const q = st.query.trim().toLowerCase();
+    const results = BRAIN.filter(b => !q || (b.title + ' ' + b.snippet + ' ' + b.body + ' ' + b.lane).toLowerCase().includes(q));
+    const brainResults = results.map(b => {
+      const idx = BRAIN.indexOf(b);
+      const open = idx === st.openIdx;
+      return this.lane(b.lane, {
+        date: b.date, kind: b.kind, title: b.title, snippet: b.snippet,
+        kindColor: b.kind === 'Status' ? 'var(--color-accent)' : b.kind === 'Note' ? '#6fb3a8' : '#c9a06a',
+        bg: open ? 'rgba(150,138,224,0.1)' : 'rgba(35,37,50,0.5)',
+        edge: open ? 'rgba(150,138,224,0.36)' : 'rgba(233,233,237,0.07)',
+        open: () => this.setState({ openIdx: idx })
+      });
+    });
+    const d = BRAIN[st.openIdx];
+
+    const app = (company, role, laneName, pass, touched, stale) => this.lane(laneName, {
+      company, role, touched,
+      rail: rail || LANES[laneName].c,
+      passMark: pass ? '✓' : '',
+      passColor: pass ? '#8fbf9c' : 'transparent',
+      passBg: pass ? 'rgba(143,191,156,0.16)' : 'transparent',
+      passEdge: pass ? 'rgba(143,191,156,0.42)' : 'transparent',
+      staleColor: stale ? '#c98d8d' : 'color-mix(in srgb, var(--color-text) 42%, transparent)'
+    });
+
+    const ev = (time, label, kind) => ({ time, label, color: EV[kind], tint: 'color-mix(in srgb, ' + EV[kind] + ' 14%, transparent)' });
+    const day = (dow, num, today, events) => ({
+      dow, num, events,
+      bg: today ? 'rgba(150,138,224,0.09)' : 'rgba(233,233,237,0.028)',
+      edge: today ? 'rgba(150,138,224,0.34)' : 'rgba(233,233,237,0.06)',
+      numColor: today ? 'var(--color-accent)' : 'var(--color-text)'
+    });
+
+    const filters = (cur) => ['All', 'Primary', 'Secondary', 'Peripheral'].map(n => ({
+      name: n,
+      color: n === cur ? (LANES[n] ? LANES[n].c : 'var(--color-accent)') : 'color-mix(in srgb, var(--color-text) 58%, transparent)',
+      edge: n === cur ? (LANES[n] ? LANES[n].edge : 'rgba(150,138,224,0.4)') : 'rgba(233,233,237,0.1)',
+      bg: n === cur ? (LANES[n] ? LANES[n].tint : 'rgba(150,138,224,0.13)') : 'transparent'
+    }));
+
+    return {
+      tabs: mkTabs(['Home', 'CRM', 'Brain', 'Review'], st.tab, 'tab'),
+      crmTabs: mkTabs(['Applications', 'Companies', 'Contacts', 'Compress'], st.crmTab, 'crmTab'),
+      isHome: st.tab === 'Home', isCRM: st.tab === 'CRM', isBrain: st.tab === 'Brain', isReview: st.tab === 'Review',
+      isApps: st.crmTab === 'Applications', isCompanies: st.crmTab === 'Companies',
+      isContacts: st.crmTab === 'Contacts', isCompress: st.crmTab === 'Compress',
+      clockTime: '11:14', clockDate: 'THU 27 AUG 2026',
+
+      habits,
+      habitScore: done + '/' + st.habits.length,
+      habitPct: Math.round(done / st.habits.length * 100) + '%',
+
+      goalGroups: [
+        { title: 'THIS WEEK', range: 'AUG 24—30', items: [
+          goal('Apply to 8 Primary-lane companies', 'Primary', 5, 8),
+          goal('3 informational interviews booked', 'Secondary', 2, 3),
+          goal('Rewrite the analytics case study', 'Primary', 1, 1)
+        ] },
+        { title: 'THIS MONTH', range: 'AUGUST', items: [
+          goal('25 total applications out', 'Primary', 21, 25),
+          goal('10 new contacts in the CRM', 'Secondary', 7, 10),
+          goal('Clear the Peripheral-lane backlog', 'Peripheral', 4, 9)
+        ] }
+      ],
+
+      priorities: [
+        this.lane('Primary', { rank: '01', title: 'Send Halcyon case-study deck', due: 'AUG 27', dueNote: 'TODAY, 2:00PM', dueColor: '#c98d8d',
+          why: 'Panel confirms tomorrow — the deck has to land before Dara sends the invite.' }),
+        this.lane('Secondary', { rank: '02', title: 'Blurb to Priya Raman', due: 'AUG 28', dueNote: 'IN 1 DAY', dueColor: MUT,
+          why: 'She offered to flag me to the staffing lead; the September wave posts next week.' }),
+        this.lane('Primary', { rank: '03', title: 'Drill forecast-validation answer', due: 'AUG 29', dueNote: 'IN 2 DAYS', dueColor: MUT,
+          why: 'The one weak spot in the Lumen debrief, and their final round is Sept 2.' })
+      ],
+
+      eventLegend: [
+        { name: 'Interview', color: EV.Interview }, { name: 'Informational', color: EV.Info },
+        { name: 'Deadline', color: EV.Deadline }, { name: 'Networking', color: EV.Network }
+      ],
+      week: [
+        day('Mon', '24', false, [ev('09:30', 'Auric Motion sourcer call', 'Info')]),
+        day('Tue', '25', false, [ev('16:00', 'Marrow & Finch coffee chat', 'Info')]),
+        day('Wed', '26', false, [ev('11:00', 'Halcyon recruiter screen', 'Interview'), ev('23:59', 'Bellrose Health app due', 'Deadline')]),
+        day('Thu', '27', true, [ev('14:00', 'Halcyon analytics case', 'Interview'), ev('18:30', 'Stats alumni mixer', 'Network')]),
+        day('Fri', '28', false, [ev('10:15', 'Lumen Freight final panel', 'Interview'), ev('17:00', 'Kestrel Labs APM deadline', 'Deadline')]),
+        day('Sat', '29', false, [ev('11:00', 'Portfolio review w/ Theo', 'Info')]),
+        day('Sun', '30', false, [ev('20:00', 'Weekly review + seal', 'Network')])
+      ],
+
+      stageSummary: [
+        { name: 'Researching', count: 4, color: '#9397ab' },
+        { name: 'Applied', count: 4, color: '#968ae0' },
+        { name: 'Interviewing', count: 2, color: '#6fb3a8' },
+        { name: 'Offer', count: 1, color: '#8fbf9c' },
+        { name: 'Rejected', count: 2, color: '#c98d8d' },
+        { name: 'Archived', count: 1, color: '#595d6c' }
+      ],
+      board: [
+        { name: 'Researching', count: 4, color: '#9397ab', cards: [
+          app('Northwind Analytics', 'Product Analyst I', 'Primary', false, '2d', false),
+          app('Kestrel Labs', 'Associate PM, Growth', 'Primary', false, '1d', false),
+          app('Bellrose Health', 'Operations Associate', 'Secondary', false, '5d', false),
+          app('Tidewater Civic', 'Program Coordinator', 'Peripheral', false, '11d', true)
+        ] },
+        { name: 'Applied', count: 4, color: '#968ae0', cards: [
+          app('Halcyon Systems', 'Associate PM', 'Primary', true, '1d', false),
+          app('Auric Motion', 'Growth Analyst', 'Primary', true, '3d', false),
+          app('Marrow & Finch', 'Strategy Analyst', 'Secondary', false, '6d', false),
+          app('Copperline Media', 'Brand Strategist', 'Peripheral', false, '12d', true)
+        ] },
+        { name: 'Interviewing', count: 2, color: '#6fb3a8', cards: [
+          app('Lumen Freight', 'Operations Analyst', 'Primary', true, '2d', false),
+          app('Sable Institute', 'Research Associate', 'Secondary', true, '5d', false)
+        ] },
+        { name: 'Offer', count: 1, color: '#8fbf9c', cards: [
+          app('Fernwood Data', 'Data Analyst I', 'Secondary', true, '1d', false)
+        ] },
+        { name: 'Rejected', count: 2, color: '#c98d8d', cards: [
+          app('Pentland Grid', 'APM, Platform', 'Primary', true, '9d', false),
+          app('Vireo Studio', 'Content Producer', 'Peripheral', false, '21d', false)
+        ] },
+        { name: 'Archived', count: 1, color: '#595d6c', cards: [
+          app('Cobalt Harbor', 'Business Analyst', 'Peripheral', false, '34d', false)
+        ] }
+      ],
+
+      laneFilters: filters('All'),
+      contactFilters: filters('Primary'),
+      companies: [
+        this.lane('Primary', { name: 'Halcyon Systems', sector: 'B2B analytics · 340 people', roles: 'Associate PM · Data Analyst', contacts: 3, touch: '1d', touchColor: 'var(--color-text)' }),
+        this.lane('Primary', { name: 'Lumen Freight', sector: 'Logistics · 1,200 people', roles: 'Operations Analyst', contacts: 2, touch: '2d', touchColor: 'var(--color-text)' }),
+        this.lane('Primary', { name: 'Northwind Analytics', sector: 'Consultancy · 90 people', roles: 'Product Analyst I', contacts: 1, touch: '2d', touchColor: 'var(--color-text)' }),
+        this.lane('Primary', { name: 'Auric Motion', sector: 'Consumer app · 210 people', roles: 'Growth Analyst', contacts: 2, touch: '3d', touchColor: 'var(--color-text)' }),
+        this.lane('Secondary', { name: 'Fernwood Data', sector: 'Data platform · 55 people', roles: 'Data Analyst I', contacts: 2, touch: '1d', touchColor: 'var(--color-text)' }),
+        this.lane('Secondary', { name: 'Marrow & Finch', sector: 'Strategy · 480 people', roles: 'Strategy Analyst', contacts: 1, touch: '6d', touchColor: MUT }),
+        this.lane('Secondary', { name: 'Sable Institute', sector: 'Research nonprofit · 130 people', roles: 'Research Associate', contacts: 2, touch: '5d', touchColor: MUT }),
+        this.lane('Peripheral', { name: 'Copperline Media', sector: 'Agency · 70 people', roles: 'Brand Strategist', contacts: 0, touch: '12d', touchColor: '#c98d8d' }),
+        this.lane('Peripheral', { name: 'Tidewater Civic', sector: 'Public sector · 300 people', roles: 'Program Coordinator', contacts: 1, touch: '11d', touchColor: '#c98d8d' })
+      ],
+      contacts: [
+        this.lane('Primary', { initials: 'DV', name: 'Dara Vance', role: 'Recruiting Lead · Halcyon Systems', rel: 'Active loop', touch: '1d', touchColor: 'var(--color-text)' }),
+        this.lane('Primary', { initials: 'BE', name: 'Bo Ellison', role: 'Sourcer · Auric Motion', rel: 'Warm', touch: '3d', touchColor: 'var(--color-text)' }),
+        this.lane('Primary', { initials: 'TM', name: 'Theo Marchetti', role: 'Sr. Analyst · Lumen Freight', rel: 'Referral offered', touch: '4d', touchColor: 'var(--color-text)' }),
+        this.lane('Primary', { initials: 'JH', name: 'June Halloran', role: 'Data Lead · Northwind Analytics', rel: 'One chat', touch: '9d', touchColor: MUT }),
+        this.lane('Secondary', { initials: 'PR', name: 'Priya Raman', role: 'Sr. Associate · Marrow & Finch', rel: 'Warm', touch: '2d', touchColor: 'var(--color-text)' }),
+        this.lane('Secondary', { initials: 'AK', name: 'Amara Koffi', role: 'Research Dir. · Sable Institute', rel: 'Interview panel', touch: '5d', touchColor: MUT }),
+        this.lane('Secondary', { initials: 'RS', name: 'Rowan Steele', role: 'Hiring Mgr · Fernwood Data', rel: 'Offer contact', touch: '1d', touchColor: 'var(--color-text)' }),
+        this.lane('Peripheral', { initials: 'GN', name: 'Gil Navarro', role: 'Alum · Copperline Media', rel: 'Cold intro', touch: '18d', touchColor: '#c98d8d' })
+      ],
+      compress: [
+        { title: 'Stale Applications', meta: '3 QUIET · THRESHOLD 10D', rows: [
+          Object.assign({ title: 'Copperline Media — Brand Strategist', note: 'Applied Aug 10. No recruiter attached to the req.', quiet: '12D QUIET', actionA: 'Revive', actionB: 'Kill' }, { lane: LANES.Peripheral.c }),
+          Object.assign({ title: 'Tidewater Civic — Program Coordinator', note: 'Still in Researching; posting closes Sept 5.', quiet: '11D QUIET', actionA: 'Revive', actionB: 'Kill' }, { lane: LANES.Peripheral.c }),
+          Object.assign({ title: 'Pentland Grid — APM, Platform', note: 'Rejected after screen; team reposts quarterly.', quiet: '9D QUIET', actionA: 'Revive', actionB: 'Kill' }, { lane: LANES.Primary.c })
+        ] },
+        { title: 'Stale Contacts', meta: '3 QUIET · THRESHOLD 14D', rows: [
+          Object.assign({ title: 'Gil Navarro', note: 'Cold intro from the alumni list; never replied to the first note.', quiet: '18D QUIET', actionA: 'Follow Up', actionB: 'Let Go' }, { lane: LANES.Peripheral.c }),
+          Object.assign({ title: 'June Halloran', note: 'One good chat in July, no thread since. Owes nothing.', quiet: '9D QUIET', actionA: 'Follow Up', actionB: 'Let Go' }, { lane: LANES.Primary.c }),
+          Object.assign({ title: 'Marisol Peña', note: 'Said "ping me in August" — August is nearly over.', quiet: '31D QUIET', actionA: 'Follow Up', actionB: 'Let Go' }, { lane: LANES.Secondary.c })
+        ] }
+      ],
+
+      brainQuery: st.query,
+      setBrainQuery: (e) => this.setState({ query: e.target.value }),
+      brainCount: results.length,
+      brainResults,
+      detail: this.lane(d.lane, { date: d.date, kind: d.kind, title: d.title, body: d.body, links: d.links }),
+
+      reviewSections: [
+        { title: 'Wins This Week', hint: '3 LOGGED', text: 'Halcyon moved to Interviewing — recruiter screen went well enough that Dara offered to schedule the case herself.\nFernwood offer in writing; it is now a floor and a clock.\nFive Primary-lane applications out, all tailored rather than sprayed.' },
+        { title: 'What Slipped', hint: 'BE HONEST', text: 'Resume tailoring block skipped Tue and Wed — both days I applied with the generic version and it shows.\nDid not log Thursday or Friday in Brain, so the week had to be reconstructed from email.' },
+        { title: 'Open Loops', hint: '4 OPEN', text: 'Halcyon case-study deck — due Thu 2pm.\nBlurb to Priya for the September wave.\nForecast-validation answer for the Lumen final.\nDecide on Copperline: kill or one last follow-up.' },
+        { title: 'People to Follow Up With', hint: 'FROM CRM', text: 'Priya Raman — send the one-paragraph blurb (Fri).\nBo Ellison — thank-you + portfolio follow-up (Mon).\nTheo Marchetti — he offered a referral; take him up on it before the Lumen final.' },
+        { title: "Next Week's Top 3", hint: 'PICK THREE', text: '1. Land the Lumen final — forecast-validation drill every morning.\n2. Get two Primary-lane applications out before Wednesday.\n3. Answer Fernwood by Sept 4 with a real read on the Primary lane.' }
+      ]
+    };
+  }
+}
+
+</script>
+</body>
+</html>

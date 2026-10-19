@@ -1,0 +1,302 @@
+@import "tailwindcss";
+
+/* ============================================================================
+   Theme — ported from the Nocturne design system shipped with the mockup
+   (the nocturne styles.css under mockup/_ds). That sheet carries hex; the ramps
+   were generated in OKLCH on a shared perceptual lightness scale, so they are
+   restated here in their native oklch. Same colors, converted losslessly.
+
+   Rules of the system, carried over verbatim:
+     - Chroma stays low outside the accent. Surfaces, borders and muted text
+       come off the neutral ramp.
+     - The accent is a line and a glow, never a flood.
+     - Elevation on a dark ground is a hairline edge plus ambient darkness,
+       not a stack of heavy shadows.
+     - Never pure black or pure white.
+   ========================================================================= */
+@theme {
+  --color-bg: oklch(21.41% 0.0278 277.52);
+  --color-surface: oklch(26.83% 0.0244 277.80);
+  --color-text: oklch(93.52% 0.0054 286.30);
+  --color-accent: oklch(66.00% 0.1245 289.55);
+  --color-accent-2: oklch(73.50% 0.0833 288.91);
+
+  --color-neutral-100: oklch(97.12% 0.0122 276.10);
+  --color-neutral-200: oklch(92.98% 0.0192 276.34);
+  --color-neutral-300: oklch(86.92% 0.0252 275.87);
+  --color-neutral-400: oklch(77.94% 0.0287 276.72);
+  --color-neutral-500: oklch(67.98% 0.0297 276.62);
+  --color-neutral-600: oklch(57.93% 0.0295 276.05);
+  --color-neutral-700: oklch(48.03% 0.0246 273.64);
+  --color-neutral-800: oklch(38.05% 0.0191 273.40);
+  --color-neutral-900: oklch(28.95% 0.0113 271.01);
+
+  --color-accent-100: oklch(97.11% 0.0146 290.31);
+  --color-accent-200: oklch(93.10% 0.0337 289.40);
+  --color-accent-300: oklch(86.99% 0.0647 288.88);
+  --color-accent-400: oklch(77.98% 0.1144 289.12);
+  --color-accent-500: oklch(67.91% 0.1251 289.02);
+  --color-accent-600: oklch(58.02% 0.1249 289.09);
+  --color-accent-700: oklch(48.01% 0.1041 289.54);
+  --color-accent-800: oklch(38.02% 0.0804 289.67);
+  --color-accent-900: oklch(28.98% 0.047 290.20);
+
+  /* Deck section ground — the one place saturation is allowed to spread.
+     Used here only for the page's top-left radial bloom. */
+  --color-section: oklch(31.40% 0.0945 276.32);
+
+  /* Text at the alphas the mockup actually uses, named by role so the
+     percentages stop being magic numbers scattered through the markup. */
+  --color-dim: color-mix(in oklab, var(--color-text) 70%, transparent);
+  --color-muted: color-mix(in oklab, var(--color-text) 55%, transparent);
+  --color-faint: color-mix(in oklab, var(--color-text) 42%, transparent);
+  --color-ghost: color-mix(in oklab, var(--color-text) 32%, transparent);
+
+  /* Hairlines. The system draws edges, not boxes. */
+  --color-edge: color-mix(in oklab, var(--color-text) 9%, transparent);
+  --color-edge-soft: color-mix(in oklab, var(--color-text) 6%, transparent);
+  --color-edge-strong: color-mix(in oklab, var(--color-text) 16%, transparent);
+
+  /* Lane identity. Three lanes, three hues — carried identically into
+     applications, contacts, tasks, goals and calendar events so a lane
+     reads the same everywhere in the app. */
+  --color-lane-primary: oklch(67.91% 0.1251 289.02);
+  --color-lane-secondary: oklch(71.82% 0.0712 182.87);
+  --color-lane-peripheral: oklch(73.12% 0.0859 73.46);
+
+  /* Pipeline stages. */
+  --color-stage-researching: oklch(67.98% 0.0297 276.62);
+  --color-stage-applied: oklch(67.91% 0.1251 289.02);
+  --color-stage-interviewing: oklch(71.82% 0.0712 182.87);
+  --color-stage-offer: oklch(76.09% 0.0712 152.88);
+  --color-stage-rejected: oklch(70.25% 0.0735 19.07);
+  --color-stage-archived: oklch(48.03% 0.0246 273.64);
+
+  --color-pass: oklch(76.09% 0.0712 152.88);
+  --color-danger: oklch(70.25% 0.0735 19.07);
+  --color-warn: oklch(73.12% 0.0859 73.46);
+
+  --font-sans: var(--font-inter), "Inter", system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains), "JetBrains Mono", ui-monospace, monospace;
+
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 14px;
+
+  /* Density 0.70x — this system is compact on purpose. */
+  --spacing: 4px;
+}
+
+@layer base {
+  html, body { height: 100%; }
+  body {
+    margin: 0;
+    background: var(--color-bg);
+    color: var(--color-text);
+    font-family: var(--font-sans);
+    font-size: 15px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: 500;              /* never bolder — hierarchy is size and space */
+    line-height: 1.12;
+    letter-spacing: -0.015em;
+    margin: 0;
+  }
+  /* Themed focus, never the browser's blue ring. */
+  :focus { outline: none; }
+  :focus-visible { outline: 2px solid var(--color-accent); outline-offset: 2px; }
+  ::selection { background: color-mix(in oklab, var(--color-accent) 30%, transparent); }
+
+  ::-webkit-scrollbar { width: 8px; height: 8px; }
+  ::-webkit-scrollbar-thumb {
+    background: color-mix(in oklab, var(--color-text) 12%, transparent);
+    border-radius: 8px;
+  }
+  ::-webkit-scrollbar-track { background: transparent; }
+
+  input, textarea, select, button { font: inherit; color: inherit; }
+  input::placeholder, textarea::placeholder { color: var(--color-ghost); }
+}
+
+@layer components {
+  /* — the app ground: two radial blooms over the base, per the mockup — */
+  .app-ground {
+    background:
+      radial-gradient(900px 520px at 12% -14%, var(--color-section) 0%, transparent 62%),
+      radial-gradient(700px 420px at 92% 4%, var(--color-surface) 0%, transparent 60%),
+      var(--color-bg);
+  }
+
+  /* — panels — the mockup's glass card, in three weights — */
+  .panel {
+    border-radius: var(--radius-lg);
+    background: linear-gradient(
+      180deg,
+      color-mix(in oklab, var(--color-surface) 70%, transparent),
+      color-mix(in oklab, var(--color-bg) 58%, transparent)
+    );
+    backdrop-filter: blur(16px);
+    border: 1px solid var(--color-edge);
+    box-shadow: 0 12px 30px oklch(0% 0 0 / 0.36);
+  }
+  /* Slightly lifted — for the column-leading cards (Priorities, Brain detail). */
+  .panel-raised {
+    border: 1px solid color-mix(in oklab, var(--color-text) 10%, transparent);
+    box-shadow: 0 14px 34px oklch(0% 0 0 / 0.4);
+  }
+  /* The Operator card: the one panel that takes an accent-tinted ground. */
+  .panel-hero {
+    background: linear-gradient(
+      168deg,
+      color-mix(in oklab, var(--color-accent-800) 55%, transparent),
+      color-mix(in oklab, var(--color-surface) 62%, transparent) 58%,
+      color-mix(in oklab, var(--color-bg) 55%, transparent)
+    );
+    box-shadow: 0 14px 34px oklch(0% 0 0 / 0.42);
+  }
+  /* Recessed — kanban column wells, sunk below the cards they hold. */
+  .panel-well {
+    border-radius: 12px;
+    background: color-mix(in oklab, var(--color-bg) 42%, transparent);
+    border: 1px solid var(--color-edge-soft);
+  }
+
+  /* — the small uppercase accent label every card leads with — */
+  .kicker {
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+  }
+  .kicker-muted { color: var(--color-faint); }
+
+  /* — column headers and other uppercase micro-labels — */
+  .micro {
+    font-size: 10px;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: var(--color-faint);
+  }
+
+  /* — a rule that fades to transparent at both ends: the Nocturne signature — */
+  .rule-fade {
+    height: 1px;
+    border: 0;
+    background: linear-gradient(
+      to right, transparent, var(--color-edge-strong), transparent
+    );
+  }
+
+  /* — buttons: outlined, never filled — */
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+    cursor: pointer; white-space: nowrap;
+    font-weight: 500; font-size: 13px; line-height: 1.2;
+    padding: 7px 13px;
+    border-radius: var(--radius-md);
+    border: 1px solid transparent;
+    background: transparent;
+    transition: background-color 120ms ease, border-color 120ms ease, color 120ms ease;
+  }
+  .btn:disabled { opacity: 0.45; cursor: not-allowed; }
+  .btn-primary { color: var(--color-accent); border-color: var(--color-accent); }
+  .btn-primary:hover:not(:disabled) { background: color-mix(in oklab, var(--color-accent) 12%, transparent); }
+  .btn-primary:active:not(:disabled) { background: color-mix(in oklab, var(--color-accent) 22%, transparent); }
+  .btn-secondary { color: var(--color-dim); border-color: var(--color-edge-strong); }
+  .btn-secondary:hover:not(:disabled) { background: color-mix(in oklab, var(--color-text) 7%, transparent); color: var(--color-text); }
+  .btn-secondary:active:not(:disabled) { background: color-mix(in oklab, var(--color-text) 14%, transparent); }
+  .btn-ghost { color: var(--color-muted); padding-inline: 8px; }
+  .btn-ghost:hover:not(:disabled) { background: color-mix(in oklab, var(--color-text) 7%, transparent); color: var(--color-text); }
+  .btn-danger { color: var(--color-danger); border-color: color-mix(in oklab, var(--color-danger) 45%, transparent); }
+  .btn-danger:hover:not(:disabled) { background: color-mix(in oklab, var(--color-danger) 12%, transparent); }
+
+  /* — inputs — */
+  .input {
+    width: 100%;
+    min-height: 34px;
+    padding: 6px 10px;
+    font-size: 14px;
+    color: var(--color-text);
+    caret-color: var(--color-accent);
+    background: color-mix(in oklab, var(--color-bg) 45%, transparent);
+    border: 1px solid var(--color-edge);
+    border-radius: var(--radius-md);
+    transition: border-color 120ms ease;
+  }
+  .input:hover { border-color: color-mix(in oklab, var(--color-text) 24%, transparent); }
+  .input:focus-visible { border-color: var(--color-accent); outline-offset: 0; }
+  textarea.input { min-height: 90px; resize: vertical; line-height: 1.6; }
+  select.input { cursor: pointer; }
+  select.input option { background: var(--color-surface); color: var(--color-text); }
+
+  /* — the segmented pill the top rail and CRM sub-tabs both use — */
+  .segbar {
+    display: inline-flex; align-items: center; gap: 2px; padding: 3px;
+    border-radius: 10px;
+    background: color-mix(in oklab, var(--color-text) 4.5%, transparent);
+    border: 1px solid color-mix(in oklab, var(--color-text) 7%, transparent);
+  }
+  .seg-opt {
+    cursor: pointer;
+    font-size: 13px; letter-spacing: 0.02em;
+    padding: 6px 16px;
+    border-radius: 7px;
+    color: color-mix(in oklab, var(--color-text) 66%, transparent);
+    background: transparent;
+    transition: color 120ms ease, background-color 120ms ease;
+  }
+  .seg-opt:hover { color: var(--color-text); }
+  .seg-opt[data-active="true"] {
+    color: var(--color-accent);
+    background: color-mix(in oklab, var(--color-accent) 13%, transparent);
+    box-shadow: inset 0 0 0 1px color-mix(in oklab, var(--color-accent) 42%, transparent);
+  }
+
+  /* — the Priorities rank marker —
+     A number that turns into a tick on hover or keyboard focus. The rank was
+     previously plain text that happened to be clickable, which nobody could
+     have guessed; this gives it a hit area, a border on hover and an obvious
+     "done" state, without spending a permanent column on a checkbox. */
+  .rank-check {
+    display: grid;
+    place-items: center;
+    width: 34px;
+    height: 34px;
+    border-radius: var(--radius-md);
+    border: 1px solid transparent;
+    font-family: var(--font-mono);
+    font-size: 20px;
+    line-height: 1;
+    cursor: pointer;
+    transition: border-color 120ms ease, background-color 120ms ease;
+  }
+  .rank-check:hover,
+  .rank-check:focus-visible {
+    border-color: color-mix(in oklab, var(--color-pass) 45%, transparent);
+    background: color-mix(in oklab, var(--color-pass) 12%, transparent);
+  }
+  .rank-check .rank-tick {
+    display: none;
+    font-size: 17px;
+    color: var(--color-pass);
+  }
+  .rank-check:hover .rank-num,
+  .rank-check:focus-visible .rank-num { display: none; }
+  .rank-check:hover .rank-tick,
+  .rank-check:focus-visible .rank-tick { display: inline; }
+
+  /* — the row-level fading rule the tables use — */
+  .row-rule {
+    background: linear-gradient(
+      to right, transparent, var(--color-edge-soft) 48px,
+      var(--color-edge-soft) calc(100% - 48px), transparent
+    ) no-repeat bottom / 100% 1px;
+  }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.35; }
+}
